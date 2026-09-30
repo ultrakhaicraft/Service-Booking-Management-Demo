@@ -12,9 +12,7 @@ namespace SERVICE_BOOKING_MANAGEMENT_DAO.Entities;
 public class ServiceBookingManagementDBContext : DbContext
 {
 	public ServiceBookingManagementDBContext(DbContextOptions<ServiceBookingManagementDBContext> options)
-		: base(options)
-	{
-	}
+	: base(options) { }
 
 	public DbSet<Account> Accounts { get; set; }
 	public DbSet<Staff> Staffs { get; set; }

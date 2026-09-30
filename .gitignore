@@ -1,4 +1,17 @@
+# AppSettings
 appsettings.json
 appsettings.Development.json
 appsettings.Local.json
 appsettings.*.json
+
+
+# Build output
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
