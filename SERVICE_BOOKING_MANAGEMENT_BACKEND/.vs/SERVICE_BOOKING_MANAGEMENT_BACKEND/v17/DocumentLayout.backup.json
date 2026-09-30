@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30E9588C-A065-47ED-97AC-5B38AFC47772}|SERVICE_BOOKING_MANAGEMENT_API\\SERVICE_BOOKING_MANAGEMENT_API.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30E9588C-A065-47ED-97AC-5B38AFC47772}|SERVICE_BOOKING_MANAGEMENT_API\\SERVICE_BOOKING_MANAGEMENT_API.csproj|solutionrelative:service_booking_management_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,6 +35,23 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-30T01:34:01.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
