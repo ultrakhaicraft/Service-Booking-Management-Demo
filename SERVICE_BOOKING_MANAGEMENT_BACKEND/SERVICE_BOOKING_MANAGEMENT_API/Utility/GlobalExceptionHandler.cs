@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SERVICE_BOOKING_MANAGEMENT_BUSINESS.Model;
+using SERVICE_BOOKING_MANAGEMENT_BUSINESS.Utility;
 
 namespace SERVICE_BOOKING_MANAGEMENT_API.Utility
 {
