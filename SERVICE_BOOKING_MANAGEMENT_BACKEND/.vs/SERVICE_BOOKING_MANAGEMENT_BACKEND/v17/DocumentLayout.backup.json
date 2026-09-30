@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30E9588C-A065-47ED-97AC-5B38AFC47772}|SERVICE_BOOKING_MANAGEMENT_API\\SERVICE_BOOKING_MANAGEMENT_API.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30E9588C-A065-47ED-97AC-5B38AFC47772}|SERVICE_BOOKING_MANAGEMENT_API\\SERVICE_BOOKING_MANAGEMENT_API.csproj|solutionrelative:service_booking_management_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16BE3A17-36FE-4D88-92A2-14309DA726C4}|SERVICE_BOOKING_MANAGEMENT_BUSINESS\\SERVICE_BOOKING_MANAGEMENT_BUSINESS.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_business\\utility\\businesslogicdi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16BE3A17-36FE-4D88-92A2-14309DA726C4}|SERVICE_BOOKING_MANAGEMENT_BUSINESS\\SERVICE_BOOKING_MANAGEMENT_BUSINESS.csproj|solutionrelative:service_booking_management_business\\utility\\businesslogicdi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16BE3A17-36FE-4D88-92A2-14309DA726C4}|SERVICE_BOOKING_MANAGEMENT_BUSINESS\\SERVICE_BOOKING_MANAGEMENT_BUSINESS.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_business\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16BE3A17-36FE-4D88-92A2-14309DA726C4}|SERVICE_BOOKING_MANAGEMENT_BUSINESS\\SERVICE_BOOKING_MANAGEMENT_BUSINESS.csproj|solutionrelative:service_booking_management_business\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16BE3A17-36FE-4D88-92A2-14309DA726C4}|SERVICE_BOOKING_MANAGEMENT_BUSINESS\\SERVICE_BOOKING_MANAGEMENT_BUSINESS.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_business\\interface\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16BE3A17-36FE-4D88-92A2-14309DA726C4}|SERVICE_BOOKING_MANAGEMENT_BUSINESS\\SERVICE_BOOKING_MANAGEMENT_BUSINESS.csproj|solutionrelative:service_booking_management_business\\interface\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1FC081A-5B38-4111-811A-9DFA6A04E195}|SERVICE_BOOKING_MANAGEMENT_DAO\\SERVICE_BOOKING_MANAGEMENT_DAO.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_dao\\utility\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1FC081A-5B38-4111-811A-9DFA6A04E195}|SERVICE_BOOKING_MANAGEMENT_DAO\\SERVICE_BOOKING_MANAGEMENT_DAO.csproj|solutionrelative:service_booking_management_dao\\utility\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MapperProfile.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\MapperProfile.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\MapperProfile.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\MapperProfile.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\MapperProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T16:33:12.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Interface\\IAuthService.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Interface\\IAuthService.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Interface\\IAuthService.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Interface\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T16:30:31.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Services\\AuthService.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T16:30:21.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BusinessLogicDI.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Utility\\BusinessLogicDI.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Utility\\BusinessLogicDI.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Utility\\BusinessLogicDI.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_BUSINESS\\Utility\\BusinessLogicDI.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T16:29:51.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_API\\Program.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_API\\Program.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_API\\Program.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_API\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-29T16:27:53.72Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
