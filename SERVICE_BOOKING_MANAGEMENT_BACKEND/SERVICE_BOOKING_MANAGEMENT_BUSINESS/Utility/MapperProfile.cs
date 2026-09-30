@@ -20,11 +20,32 @@ namespace SERVICE_BOOKING_MANAGEMENT_BUSINESS.Utility
 				.ForMember(d => d.Id, o => o.Ignore())
 				.ForMember(d => d.FullName, o => o.MapFrom(s => s.FullName.Trim()))
 				.ForMember(d => d.Email, o => o.MapFrom(s => s.Email.Trim()))
-				.ForMember(d => d.IsActive, o => o.MapFrom(_ => true));
+				.ForMember(d => d.IsActive, o => o.MapFrom(_ => true)); //Set IsActive is true when created
 			CreateMap<StaffUpdateDTO, Staff>()
 				.ForMember(d => d.Id, o => o.Ignore())
 				.ForMember(d => d.FullName, o => o.MapFrom(s => s.FullName.Trim()))
 				.ForMember(d => d.Email, o => o.MapFrom(s => s.Email.Trim()));
+
+			//Work Schedule
+			CreateMap<WorkSchedule, WorkScheduleDetailDTO>();
+			CreateMap<WorkScheduleCreateDTO, WorkSchedule>()
+				.ForMember(d => d.Id, o => o.Ignore())      // server-generated
+				.ForMember(d => d.StaffId, o => o.Ignore())
+				.ForMember(d => d.Staff, o => o.Ignore());
+
+			//Services
+			CreateMap<Service, ServiceDetailDTO>();
+			CreateMap<ServiceCreateDTO, Service>()
+				.ForMember(d => d.Id, o => o.Ignore())
+				.ForMember(d => d.Name, o => o.MapFrom(s => s.Name.Trim()))
+				.ForMember(d => d.Description, o => o.MapFrom(s => (s.Description ?? string.Empty).Trim()))
+				.ForMember(d => d.IsActive, o => o.MapFrom(_ => true));  //Set IsActive is true when created
+			CreateMap<ServiceUpdateDTO, Service>()
+				.ForMember(d => d.Id, o => o.Ignore())
+				.ForMember(d => d.Name, o => o.MapFrom(s => s.Name.Trim()))
+				.ForMember(d => d.Description, o => o.MapFrom(s => (s.Description ?? string.Empty).Trim()));
 		}
+	
+	
 	}
 }

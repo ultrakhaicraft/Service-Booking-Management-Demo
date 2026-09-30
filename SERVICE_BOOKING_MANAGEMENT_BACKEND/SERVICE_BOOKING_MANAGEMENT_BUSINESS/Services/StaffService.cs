@@ -92,6 +92,12 @@ public class StaffService : IStaffService
 		var staff = await _staffRepository.FindAsync(w => w.Id == id)
 			?? throw new NotFoundException($"Staff '{id}' was not found.");
 
+		var email = request.Email.Trim();
+		var emailTaken = await _staffRepository.GetQueryable()
+			.AnyAsync(s => s.Email == email && s.Id != id);
+		if (emailTaken)
+			throw new ConflictException($"A staff member with email '{email}' already exists.");
+
 		staff =_mapper.Map<Staff>(request);
 
 		await _staffRepository.UpdateAsync(staff);
