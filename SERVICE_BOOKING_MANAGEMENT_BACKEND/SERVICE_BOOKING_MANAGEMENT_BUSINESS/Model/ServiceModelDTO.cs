@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace SERVICE_BOOKING_MANAGEMENT_BUSINESS.Model;
 
+public record ServiceQuery : PagingQuery
+{
+	public string? Name { get; set; } 
+	public int? StartPrice { get; set; }
+	public int? EndPrice { get; set; }
+	public bool? IsActive { get; set; }
+}
 public class ServiceDetailDTO
 {
 	public Guid Id { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SERVICE_BOOKING_MANAGEMENT_DAO.Utility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,7 +17,7 @@ public class Booking
 	public Guid StaffId { get; set; }
 	public DateTime StartTime { get; set; }
 	public DateTime EndTime { get; set; }
-	public required string Status { get; set; }  // e.g. "Pending", "Confirmed", "Completed", "Cancelled"
+	public BookingStatus Status { get; set; }  // e.g. "Pending", "Confirmed", "Completed", "Cancelled"
 	public string? CustomerNote { get; set; }
 	public string? CancellationReason { get; set; }
 	public DateTime CreatedAt { get; set; }

@@ -44,7 +44,7 @@ public class StaffController : ControllerBase
 		var result = await staffService.CreateStaffAsync(dto);
 
 		ApiResponseWrapper<StaffDetailDTO> response = ApiResponseWrapper<StaffDetailDTO>
-					.Success(result, "Get all Staff Success");
+					.Created(result, "Create Staff Success");
 
 		return StatusCode(StatusCodes.Status201Created, result);
 	}
@@ -58,7 +58,7 @@ public class StaffController : ControllerBase
 		await staffService.UpdateStaffAsync(id, dto);
 
 		ApiResponseWrapper<string> response = ApiResponseWrapper<string>
-					.Success(string.Empty, "Get all Staff Success");
+					.Success(string.Empty, "Update Staff Success");
 
 		return Ok(response);
 	}

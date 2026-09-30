@@ -98,7 +98,7 @@ public class StaffService : IStaffService
 		if (emailTaken)
 			throw new ConflictException($"A staff member with email '{email}' already exists.");
 
-		staff =_mapper.Map<Staff>(request);
+		_mapper.Map(request, staff);
 
 		await _staffRepository.UpdateAsync(staff);
 		await _unitOfWork.SaveAsync();
