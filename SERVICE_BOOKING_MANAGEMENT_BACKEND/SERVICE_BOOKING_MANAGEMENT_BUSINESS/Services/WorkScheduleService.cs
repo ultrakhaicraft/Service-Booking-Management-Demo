@@ -132,7 +132,7 @@ public class WorkScheduleService : IWorkScheduleService
 
 		var hasActiveBookings = await _bookingRepository.GetQueryable()
 			.AnyAsync(b => b.StaffId == workSchedule.StaffId
-						&& (b.Status == BookingStatus.Pending.ToString() || b.Status == BookingStatus.Confirmed.ToString())
+						&& (b.Status == BookingStatus.Pending || b.Status == BookingStatus.Confirmed)
 						&& b.StartTime < shiftEnd
 						&& b.EndTime > shiftStart);
 
