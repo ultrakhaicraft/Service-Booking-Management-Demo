@@ -23,9 +23,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
 	public IQueryable<T> Entities => _context.Set<T>();
 
-	public async Task<IQueryable<T>> GetQueryableAsync()
+	public IQueryable<T> GetQueryable()
 	{
-		await Task.Delay(100);
 		return _dbSet.AsQueryable();
 	}
 

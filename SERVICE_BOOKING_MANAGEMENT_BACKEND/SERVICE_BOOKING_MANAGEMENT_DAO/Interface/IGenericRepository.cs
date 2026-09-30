@@ -9,7 +9,7 @@ namespace SERVICE_BOOKING_MANAGEMENT_DAO.Interface;
 
 public interface IGenericRepository<T> where T : class
 {
-	Task<IQueryable<T>> GetQueryableAsync();
+	IQueryable<T> GetQueryable();
 	Task<T?> GetByIdAsync(object id);
 	Task InsertAsync(T obj);
 	Task InsertRangeAsync(List<T> obj);
