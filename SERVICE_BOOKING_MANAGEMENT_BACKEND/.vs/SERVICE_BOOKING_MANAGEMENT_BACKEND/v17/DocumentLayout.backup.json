@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30E9588C-A065-47ED-97AC-5B38AFC47772}|SERVICE_BOOKING_MANAGEMENT_API\\SERVICE_BOOKING_MANAGEMENT_API.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30E9588C-A065-47ED-97AC-5B38AFC47772}|SERVICE_BOOKING_MANAGEMENT_API\\SERVICE_BOOKING_MANAGEMENT_API.csproj|solutionrelative:service_booking_management_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F1FC081A-5B38-4111-811A-9DFA6A04E195}|SERVICE_BOOKING_MANAGEMENT_DAO\\SERVICE_BOOKING_MANAGEMENT_DAO.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_dao\\utility\\designtimedbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1FC081A-5B38-4111-811A-9DFA6A04E195}|SERVICE_BOOKING_MANAGEMENT_DAO\\SERVICE_BOOKING_MANAGEMENT_DAO.csproj|solutionrelative:service_booking_management_dao\\utility\\designtimedbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1FC081A-5B38-4111-811A-9DFA6A04E195}|SERVICE_BOOKING_MANAGEMENT_DAO\\SERVICE_BOOKING_MANAGEMENT_DAO.csproj|d:\\other git project\\service_booking_management_demo\\service_booking_management_backend\\service_booking_management_dao\\entities\\servicebookingmanagementdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1FC081A-5B38-4111-811A-9DFA6A04E195}|SERVICE_BOOKING_MANAGEMENT_DAO\\SERVICE_BOOKING_MANAGEMENT_DAO.csproj|solutionrelative:service_booking_management_dao\\entities\\servicebookingmanagementdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,21 +41,34 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
-              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
-              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
-              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-30T01:34:01.241Z",
+              "Title": "DesignTimeDbContextFactory.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\DesignTimeDbContextFactory.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\DesignTimeDbContextFactory.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\DesignTimeDbContextFactory.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_DAO\\Utility\\DesignTimeDbContextFactory.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T02:04:31.52Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServiceBookingManagementDBContext.cs",
+              "DocumentMoniker": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_DAO\\Entities\\ServiceBookingManagementDBContext.cs",
+              "RelativeDocumentMoniker": "SERVICE_BOOKING_MANAGEMENT_DAO\\Entities\\ServiceBookingManagementDBContext.cs",
+              "ToolTip": "D:\\Other Git Project\\Service_Booking_Management_Demo\\SERVICE_BOOKING_MANAGEMENT_BACKEND\\SERVICE_BOOKING_MANAGEMENT_DAO\\Entities\\ServiceBookingManagementDBContext.cs",
+              "RelativeToolTip": "SERVICE_BOOKING_MANAGEMENT_DAO\\Entities\\ServiceBookingManagementDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T02:04:29.735Z",
+              "EditorCaption": ""
             }
           ]
         }

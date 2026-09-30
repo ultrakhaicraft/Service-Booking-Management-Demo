@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SERVICE_BOOKING_MANAGEMENT_DAO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9ba0fdac46d64209d69d5522e0ab5a93c804bd5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5588192d6a2cb98b36b5f211b6c361c40d329ee8")]
 [assembly: System.Reflection.AssemblyProductAttribute("SERVICE_BOOKING_MANAGEMENT_DAO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SERVICE_BOOKING_MANAGEMENT_DAO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
