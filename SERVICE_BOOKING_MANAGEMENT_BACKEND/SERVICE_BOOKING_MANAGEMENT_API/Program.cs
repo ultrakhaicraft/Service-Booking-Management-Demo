@@ -1,6 +1,7 @@
 using SERVICE_BOOKING_MANAGEMENT_API;
 using SERVICE_BOOKING_MANAGEMENT_API.Utility;
 using SERVICE_BOOKING_MANAGEMENT_BUSINESS.Utility;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(o => o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())); //Allow Enum to be readable as string
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

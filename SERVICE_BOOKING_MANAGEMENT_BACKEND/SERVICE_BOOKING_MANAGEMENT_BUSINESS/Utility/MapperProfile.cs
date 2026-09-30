@@ -44,8 +44,27 @@ namespace SERVICE_BOOKING_MANAGEMENT_BUSINESS.Utility
 				.ForMember(d => d.Id, o => o.Ignore())
 				.ForMember(d => d.Name, o => o.MapFrom(s => s.Name.Trim()))
 				.ForMember(d => d.Description, o => o.MapFrom(s => (s.Description ?? string.Empty).Trim()));
+
+			//Booking
+			CreateMap<Booking, BookingDetailDTO>();
+			CreateMap<Booking, BookingViewDTO>();
+
+			CreateMap<BookingCreateDTO, Booking>()
+			.ForMember(d => d.CustomerNote, o => o.MapFrom(s =>
+				string.IsNullOrWhiteSpace(s.CustomerNote) ? null : s.CustomerNote.Trim()))
+			.ForMember(d => d.Id, o => o.Ignore())
+			.ForMember(d => d.BookingCode, o => o.Ignore())
+			.ForMember(d => d.CustomerId, o => o.Ignore())
+			.ForMember(d => d.EndTime, o => o.Ignore())
+			.ForMember(d => d.Status, o => o.Ignore())
+			.ForMember(d => d.CancellationReason, o => o.Ignore())
+			.ForMember(d => d.CreatedAt, o => o.Ignore())
+			.ForMember(d => d.Customer, o => o.Ignore())
+			.ForMember(d => d.Service, o => o.Ignore())
+			.ForMember(d => d.Staff, o => o.Ignore());
+
 		}
-	
-	
+
+
 	}
 }
