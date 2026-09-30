@@ -1,4 +1,5 @@
 ﻿using Azure.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SERVICE_BOOKING_MANAGEMENT_API.Utility;
 using SERVICE_BOOKING_MANAGEMENT_BUSINESS.Interface;
@@ -18,6 +19,7 @@ public class AuthController : ControllerBase
 	}
 
 	[HttpPost("login")]
+	[AllowAnonymous]
 	public async Task<IActionResult> Login([FromBody] LoginRequest request)
 	{
 		if (!ModelState.IsValid)
@@ -42,6 +44,7 @@ public class AuthController : ControllerBase
 	}
 
 	[HttpGet("me")]
+	[Authorize]
 	public async Task<IActionResult> Me()
 	{
 		var accountId = User.Claims.GetUserIdFromJwtToken();

@@ -34,6 +34,9 @@ public static class BusinessLogicDI
 	{
 		
 		services.AddScoped<IAuthService, AuthService>();
-		
+		services.AddScoped<ITokenService, TokenService>();
+		services.AddScoped<IStaffService, StaffService>();
+		services.AddScoped<IWorkScheduleService, WorkScheduleService>();
+
 	}
 }

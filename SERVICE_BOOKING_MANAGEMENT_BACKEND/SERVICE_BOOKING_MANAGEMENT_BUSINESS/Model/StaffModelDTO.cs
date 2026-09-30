@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace SERVICE_BOOKING_MANAGEMENT_BUSINESS.Model;
 
+
+public record StaffQueryDto : PagingQuery
+{
+	public string FullName { get; set; } = string.Empty;
+	public string Email { get; set; } = string.Empty;
+}
 public class StaffDetailDTO
 {
 	public Guid Id { get; set; }

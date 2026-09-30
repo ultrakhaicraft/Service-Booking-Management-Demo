@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SERVICE_BOOKING_MANAGEMENT_DAO.Utility
+namespace SERVICE_BOOKING_MANAGEMENT_DAO.Utility;
+
+public enum AccountRole
 {
-	public enum AccountRole
-	{
-		Admin,
-		Customer
-	}
+	Admin,
+	Customer
+}
+
+public enum BookingStatus
+{
+	Pending,
+	Confirmed,
+	Completed,
+	Cancelled,
 }
