@@ -10,6 +10,7 @@ export const CUSTOMER_HOME_PATH = "/customer-home";
 export const ADMIN_NAV_ITEMS: NavItem[] = [
   { label: "Home", href: ADMIN_HOME_PATH },
   { label: "Services", href: "/admin/services" },
+  { label: "Staffs", href: "/admin/staffs" },
   { label: "Schedules", href: "/admin/schedules" },
   { label: "Bookings", href: "/admin/bookings" },
 ];
