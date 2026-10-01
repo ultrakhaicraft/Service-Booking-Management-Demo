@@ -1,4 +1,4 @@
-import { PagingQuery } from './api';
+import { PagingQuery } from "./api-and-paging-wrapper";
 
 // Enum mirroring backend BookingStatus
 export enum BookingStatus {
