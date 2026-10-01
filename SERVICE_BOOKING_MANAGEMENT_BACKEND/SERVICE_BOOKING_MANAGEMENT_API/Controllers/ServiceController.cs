@@ -25,7 +25,7 @@ public class ServiceController : ControllerBase
 	public async Task<IActionResult> GetServices([FromQuery] ServiceQuery query)
 	{
 		//Enforce Customer to only see Active Service
-		if (!User.IsInRole(nameof(AccountRole.Customer)))
+		if (User.IsInRole(nameof(AccountRole.Customer)))
 		{
 			query.IsActive = true;
 		}
