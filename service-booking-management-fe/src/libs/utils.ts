@@ -32,3 +32,19 @@ export function todayLocalDate(): string {
   const pad = (n: number) => String(n).padStart(2, "0");
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
+
+/** "09:00:00" -> "09:00" */
+export function formatTimeOnly(time: string): string {
+  return time.slice(0, 5);
+}
+ 
+/** "HH:mm"; the backend TimeOnly is safest with "HH:mm:ss". */
+export function toTimeOnlyPayload(time: string): string {
+  return time.length === 5 ? `${time}:00` : time;
+}
+ 
+/** "2026-10-02" -> "Fri" **/
+export function formatWeekday(isoDate: string): string {
+  const [year, month, day] = isoDate.slice(0, 10).split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-GB", { weekday: "short" });
+}

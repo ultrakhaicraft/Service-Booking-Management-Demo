@@ -15,7 +15,7 @@ export const workScheduleService = {
     return api.post<WorkScheduleDetailDTO>(`${BASE_PATH}/staffs/${staffId}/schedules`, dto);
   },
 
-  async remove(id: string): Promise<void> {
-    await api.delete<void>(`${BASE_PATH}/staffs/schedules/${id}`);
+  async remove(schedulesId: string): Promise<void> {
+    await api.delete<void>(`${BASE_PATH}/staffs/schedules/${schedulesId}`);
   },
 };
