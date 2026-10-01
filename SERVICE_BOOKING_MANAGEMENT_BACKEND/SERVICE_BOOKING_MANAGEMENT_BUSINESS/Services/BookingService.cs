@@ -68,7 +68,7 @@ public class BookingService : IBookingService
 
 		//Get work schedules
 		var shifts = await _workScheduleRepository.GetQueryable().AsNoTracking()
-			.Where(w => staffIds.Contains(w.Id) && w.WorkDate == date)
+			.Where(w => staffIds.Contains(w.StaffId) && w.WorkDate == date)
 			.ToListAsync();
 
 		//Get booking that the staff is occupied

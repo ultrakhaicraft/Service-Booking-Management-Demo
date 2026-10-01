@@ -4,6 +4,7 @@ import { PagingQuery } from "./api-and-paging-wrapper";
 export interface StaffQueryDto extends PagingQuery {
   fullName?: string;
   email?: string;
+  isActive?: boolean;
 }
 
 // Full details for staff response

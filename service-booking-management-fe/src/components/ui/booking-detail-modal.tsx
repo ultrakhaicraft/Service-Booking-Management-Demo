@@ -4,6 +4,7 @@
 import { formatDateTimeRange, formatDateTime } from "@/libs/utils";
 import type { BookingDetailDTO } from "@/types/booking";
 import Modal from "../shared/modal";
+import BookingStatusBadge from "./booking-status-badge";
 
 interface BookingDetailModalProps {
   booking: BookingDetailDTO;

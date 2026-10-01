@@ -22,7 +22,7 @@ interface PriceFilter {
 const inputClass = (hasError: boolean) =>
   `w-full rounded border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 ${
     hasError ? "border-red-500 focus:ring-red-200" : "border-gray-400 focus:border-accent focus:ring-accent/40"
-  }`;
+}`;
 
 export default function CustomerServicesPage() {
   const [data, setData] = useState<PagingModel<ServiceDetailDTO> | null>(null);
