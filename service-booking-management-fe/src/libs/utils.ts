@@ -9,3 +9,26 @@ export function formatDuration(minutes: number): string {
   const rest = minutes % 60;
   return rest === 0 ? `${hours} h` : `${hours} h ${rest} min`;
 }
+
+export function formatDate(iso: string): string {
+  const [year, month, day] = iso.slice(0, 10).split("-");
+  return `${day}/${month}/${year}`;
+}
+ 
+export function formatTime(iso: string): string {
+  return iso.slice(11, 16);
+}
+ 
+export function formatDateTime(iso: string): string {
+  return `${formatDate(iso)} ${formatTime(iso)}`;
+}
+ 
+export function formatDateTimeRange(startIso: string, endIso: string): string {
+  return `${formatDate(startIso)} ${formatTime(startIso)} - ${formatTime(endIso)}`;
+}
+
+export function todayLocalDate(): string {
+  const now = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
