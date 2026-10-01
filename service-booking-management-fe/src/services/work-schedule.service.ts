@@ -4,18 +4,18 @@ import { WorkScheduleCreateDTO, WorkScheduleDetailDTO, WorkScheduleQuery } from 
 import { api } from "./api";
 
 
-const BASE_PATH = "/api";
+
 
 export const workScheduleService = {
   getScheduleByStaffId(staffId: string, query: WorkScheduleQuery = {}, signal?: AbortSignal): Promise<PagingModel<WorkScheduleDetailDTO>> {
-    return api.get<PagingModel<WorkScheduleDetailDTO>>(`${BASE_PATH}/staffs/${staffId}/schedules`, { query: { ...query }, signal });
+    return api.get<PagingModel<WorkScheduleDetailDTO>>(`api/staffs/${staffId}/schedules`, { query: { ...query }, signal });
   },
 
   create(staffId:string, dto: WorkScheduleCreateDTO): Promise<WorkScheduleDetailDTO> {
-    return api.post<WorkScheduleDetailDTO>(`${BASE_PATH}/staffs/${staffId}/schedules`, dto);
+    return api.post<WorkScheduleDetailDTO>(`api/staffs/${staffId}/schedules`, dto);
   },
 
   async remove(schedulesId: string): Promise<void> {
-    await api.delete<void>(`${BASE_PATH}/staffs/schedules/${schedulesId}`);
+    await api.delete<void>(`api/staffs/schedules/${schedulesId}`);
   },
 };

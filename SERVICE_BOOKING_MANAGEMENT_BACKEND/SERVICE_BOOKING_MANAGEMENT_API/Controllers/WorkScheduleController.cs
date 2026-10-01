@@ -8,6 +8,7 @@ using SERVICE_BOOKING_MANAGEMENT_DAO.Utility;
 namespace SERVICE_BOOKING_MANAGEMENT_API.Controllers;
 
 [ApiController]
+[Route("api")]
 [Authorize(Roles = nameof(AccountRole.Admin))]
 public class WorkScheduleController : Controller
 {

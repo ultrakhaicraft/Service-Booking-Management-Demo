@@ -61,6 +61,11 @@ public class WorkScheduleService : IWorkScheduleService
 
 		var totalCount = await schedules.CountAsync(ct);
 
+		if(totalCount <= 0)
+		{
+			throw new NotFoundException("Unable to find schedules from this staff, please add new schedule or change the filter");
+		}
+
 		//Fetch Data, with paging done in Database side
 		var data = await schedules
 			.Skip((query.PageIndex - 1) * query.PageSize)
@@ -87,12 +92,17 @@ public class WorkScheduleService : IWorkScheduleService
 
 		var schedules = _workScheduleRepository.GetQueryable().AsNoTracking();
 
-		var IsStaffActive = await schedules.Include(u => u.Staff)
-			.Where(v => v.StaffId == StaffId)
+		var staff = await _staffRepository.GetQueryable().AsNoTracking()
+			.Where(v => v.Id == StaffId)
 			.FirstOrDefaultAsync();
 
+		if(staff == null)
+		{
+			throw new NotFoundException($"Staff '{StaffId}' was not found.");
+		}
+
 		//Không đặt lịch với nhân viên bị khóa.
-		if (IsStaffActive is null || IsStaffActive.Staff.IsActive == false)
+		if (staff.IsActive == false)
 		{
 			throw new BadRequestException("This Staff is locked because IsActive is false, please use other staff or set IsActive back to true");
 		}
