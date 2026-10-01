@@ -23,7 +23,7 @@ namespace SERVICE_BOOKING_MANAGEMENT_API
 		public static void ConfigCors(this IServiceCollection services)
 		{
 			services.AddCors(options => options.AddPolicy("AllowFrontEndOrigins", builder =>
-					builder.WithOrigins("https://localhost:3000")
+					builder.WithOrigins("http://localhost:3000")
 						   .AllowAnyHeader()
 						   .AllowAnyMethod()
 						   .AllowCredentials()

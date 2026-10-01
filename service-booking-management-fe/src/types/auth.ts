@@ -1,3 +1,9 @@
+export enum AccountRole {
+  Customer = 'Customer',
+  Admin = 'Admin',
+}
+
+
 // Matching backend LoginRequest
 export interface LoginRequest {
   email: string;

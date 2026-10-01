@@ -27,3 +27,11 @@ export class ApiError extends Error {
     return this.status === 403;
   }
 }
+
+export type ApiFieldErrors = Record<string, string[]>;
+export interface ApiErrorBody {
+  statusCode: number;
+  message: string;
+  error?: string | ApiFieldErrors | null;
+  timestamp: string;
+}
