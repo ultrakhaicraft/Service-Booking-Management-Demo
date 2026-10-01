@@ -12,7 +12,6 @@ namespace SERVICE_BOOKING_MANAGEMENT_API.Controllers;
 
 [Route("api/staffs")]
 [ApiController]
-[Authorize(Roles = nameof(AccountRole.Admin))]
 public class StaffController : ControllerBase
 {
 	private readonly IStaffService staffService;
@@ -23,6 +22,7 @@ public class StaffController : ControllerBase
 	}
 
 	[HttpGet]
+	[Authorize]
 	[ProducesResponseType(typeof(PagingModel<StaffDetailDTO>), StatusCodes.Status200OK)]
 	public async Task<IActionResult> GetStaffsAsync([FromQuery] StaffQueryDto request)
 	{
@@ -37,6 +37,7 @@ public class StaffController : ControllerBase
 	}
 
 	[HttpPost]
+	[Authorize(Roles = nameof(AccountRole.Admin))]
 	[ProducesResponseType(typeof(StaffDetailDTO), StatusCodes.Status201Created)]
 	[ProducesResponseType(StatusCodes.Status409Conflict)]
 	public async Task<IActionResult> CreateStaff([FromBody] StaffCreateDTO dto)
@@ -50,6 +51,7 @@ public class StaffController : ControllerBase
 	}
 
 	[HttpPut("{id}")]
+	[Authorize(Roles = nameof(AccountRole.Admin))]
 	[ProducesResponseType(StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	[ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -64,6 +66,7 @@ public class StaffController : ControllerBase
 	}
 
 	[HttpDelete("{id}")]
+	[Authorize(Roles = nameof(AccountRole.Admin))]
 	[ProducesResponseType(StatusCodes.Status204NoContent)]
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	[ProducesResponseType(StatusCodes.Status409Conflict)]

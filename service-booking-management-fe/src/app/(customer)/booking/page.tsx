@@ -15,7 +15,17 @@ import { serviceManagementService } from "@/services/service.service";
 import { AvailableSlotDTO, BookingDetailDTO } from "@/types/booking";
 import { ApiError } from "@/types/errorType";
 import { ServiceDetailDTO } from "@/types/service";
+import { StaffDetailDTO } from "@/types/staff";
+import { staffService } from "@/services/staff.service";
+import Pagination from "@/components/ui/pagination";
+import { PagingModel } from "@/types/api-and-paging-wrapper";
+import ServiceSelectTable from "@/components/ui/service-selected-table";
+import StaffSelectTable from "@/components/ui/staff-selected-table";
 
+const inputClass = (hasError: boolean) =>
+  `w-full rounded border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 ${
+    hasError ? "border-red-500 focus:ring-red-200" : "border-gray-400 focus:border-accent focus:ring-accent/40"
+}`;
 
 const sortSlots = (slots: AvailableSlotDTO[]) =>
   [...slots].sort(
@@ -27,12 +37,26 @@ function BookingForm() {
 
   const [today, setToday] = useState(""); // set after mount to avoid a server/client date mismatch
 
-  const [services, setServices] = useState<ServiceDetailDTO[]>([]);
+  const [staffs, setStaffs] = useState<PagingModel<StaffDetailDTO> | null>(null);
+  const [staffsLoading, setStaffsLoading] = useState(true);
+  const [staffsError, setStaffsError] = useState<string | null>(null);
+  const [staffsKey, setStaffsKey] = useState(0);
+  const [staffId, setStaffId] = useState(searchParams.get("staffId") ?? "");
+  const [staffSearchInput, setStaffSearchInput] = useState("");
+  const [staffPageIndex, setStaffPageIndex] = useState(1);
+
+
+
+  const [services, setServices] = useState<PagingModel<ServiceDetailDTO> | null>(null);
   const [servicesLoading, setServicesLoading] = useState(true);
   const [servicesError, setServicesError] = useState<string | null>(null);
   const [servicesKey, setServicesKey] = useState(0);
-
+  const [serviceSearchInput, setServiceSearchInput] = useState("");
+  const [servicePageIndex, setServicePageIndex] = useState(1);
   const [serviceId, setServiceId] = useState(searchParams.get("serviceId") ?? "");
+
+
+  
   const [date, setDate] = useState("");
 
   const [slots, setSlots] = useState<AvailableSlotDTO[] | null>(null);
@@ -47,7 +71,8 @@ function BookingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [created, setCreated] = useState<BookingDetailDTO | null>(null);
 
-  const selectedService = services.find((s) => s.id === serviceId);
+  const selectedService = services?.data?.find((s) => s.id === serviceId);
+  const selectedStaff = staffs?.data?.find((s) => s.id === staffId);
 
   useEffect(() => {
     setToday(todayLocalDate());
@@ -60,10 +85,10 @@ function BookingForm() {
     setServicesError(null);
 
     serviceManagementService
-      .getServices({ isActive: true, pageIndex: 1, pageSize: 100 }, controller.signal)
+      .getServices({ name: serviceSearchInput || undefined, isActive: true, pageIndex: servicePageIndex, pageSize: 5 }, controller.signal)
       .then((result) => {
         const list = result.data ?? [];
-        setServices(list);
+        setServices(result);
         // Ignore a ?serviceId= that is not an active service.
         setServiceId((current) => (list.some((s) => s.id === current) ? current : ""));
       })
@@ -76,7 +101,29 @@ function BookingForm() {
       });
 
     return () => controller.abort();
-  }, [servicesKey]);
+  }, [servicesKey, serviceSearchInput, servicePageIndex]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setStaffsLoading(true);
+    setStaffsError(null);
+
+     staffService
+      .getStaffs({ fullName: staffSearchInput || undefined, isActive: true, pageIndex: staffPageIndex, pageSize: 5 }, controller.signal)
+      .then((result) => {
+        const list = result.data ?? [];
+        setStaffs(result);
+        // Ignore a ?staffId= that is not an active staff member.
+        setStaffId((current) => (list.some((s) => s.id === current) ? current : ""));
+      })
+      .catch((err: unknown) => {
+        if (err instanceof DOMException && err.name === "AbortError") return;
+        setStaffsError(err instanceof ApiError ? err.message : "Failed to load staff members.");
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setStaffsLoading(false);
+      });
+  }, [staffsKey, staffSearchInput, staffPageIndex]);
 
   // Load the available slots whenever service or date changes.
   useEffect(() => {
@@ -91,7 +138,7 @@ function BookingForm() {
     setSlotsError(null);
 
     bookingService
-      .getAvailableSlots({ serviceId, date }, controller.signal)
+      .getAvailableSlots({ serviceId, date, staffId }, controller.signal)
       .then((result) => setSlots(sortSlots(result)))
       .catch((err: unknown) => {
         if (err instanceof DOMException && err.name === "AbortError") return;
@@ -107,6 +154,12 @@ function BookingForm() {
 
   function handleServiceChange(value: string) {
     setServiceId(value);
+    setSelectedSlot(null);
+    setErrors((prev) => ({ ...prev, serviceId: undefined, slot: undefined }));
+  }
+
+   function handleStaffChange(value: string) {
+    setStaffId(value);
     setSelectedSlot(null);
     setErrors((prev) => ({ ...prev, serviceId: undefined, slot: undefined }));
   }
@@ -214,37 +267,64 @@ function BookingForm() {
 
         <section className={sectionClass}>
           <h2 className={headingClass}>1. Choose a service</h2>
+
+          <label htmlFor="search" className="mb-1 block text-sm font-semibold">Search Service</label>
+          <input
+            id="search"
+            type="search"
+            value={serviceSearchInput}
+            onChange={(e) => setServiceSearchInput(e.target.value)}
+            placeholder="Search services..."
+            className={inputClass(false)}
+          />
+
           {servicesLoading ? (
             <LoadingState message="Loading services..." />
           ) : servicesError ? (
             <ErrorState message={servicesError} onRetry={() => setServicesKey((k) => k + 1)} />
-          ) : services.length === 0 ? (
+          ) : services?.data?.length === 0 ? (
             <EmptyState message="No services are available right now." />
           ) : (
-            <FormField id="booking-service" label="Service" error={errors.serviceId}>
-              <select
-                id="booking-service"
-                value={serviceId}
-                onChange={(e) => handleServiceChange(e.target.value)}
-                disabled={isSubmitting}
-                aria-invalid={Boolean(errors.serviceId)}
-                aria-describedby={errors.serviceId ? "booking-service-error" : undefined}
-                className={fieldInputClass(Boolean(errors.serviceId))}
-              >
-                <option value="">Select a service...</option>
-                {services.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.name} - {formatDuration(s.durationMinutes)} - {formatPrice(s.price)}
-                  </option>
-                ))}
-              </select>
-            </FormField>
+              <ServiceSelectTable
+                services={services!}
+                selectedServiceId={serviceId}
+                onSelectService={handleServiceChange}
+                onPageChange={setServicePageIndex}
+              />
           )}
-          {selectedService && <p className="mt-3 text-sm text-gray-700">{selectedService.description}</p>}
         </section>
 
         <section className={sectionClass}>
-          <h2 className={headingClass}>2. Choose a date</h2>
+          <h2 className={headingClass}>2. Choose a staff</h2>
+          <label htmlFor="search" className="mb-1 block text-sm font-semibold">Search Staff</label>
+          <input
+            id="search"
+            type="search"
+            value={staffSearchInput}
+            onChange={(e) => setStaffSearchInput(e.target.value)}
+            placeholder="Search staff..."
+            className={inputClass(false)}
+          />
+
+          {staffsLoading ? (
+            <LoadingState message="Loading staff..." />
+          ) : staffsError ? (
+            <ErrorState message={staffsError} onRetry={() => setStaffsKey((k) => k + 1)} />
+          ) : staffs?.data?.length === 0 ? (
+            <EmptyState message="No staff are available right now." />
+          ) : (
+            <StaffSelectTable
+              staffs={staffs!}
+              selectedStaffId={staffId}
+              onSelectStaff={handleStaffChange}
+              onPageChange={setStaffPageIndex}
+            />
+
+          )}     
+        </section>
+
+        <section className={sectionClass}>
+          <h2 className={headingClass}>3. Choose a date</h2>
           <FormField id="booking-date" label="Date" error={errors.date}>
             <input
               id="booking-date"
@@ -261,7 +341,7 @@ function BookingForm() {
         </section>
 
         <section className={sectionClass}>
-          <h2 className={headingClass}>3. Pick a time slot</h2>
+          <h2 className={headingClass}>4. Pick a time slot</h2>
           {!serviceId || !date || errors.date ? (
             <p className="text-sm text-gray-600">Choose a service and a valid date to see the available slots.</p>
           ) : slotsLoading && !slots ? (

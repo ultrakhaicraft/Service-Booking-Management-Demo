@@ -46,7 +46,17 @@ public class StaffService : IStaffService
 			staffs = staffs.Where(s => s.Email.Contains(email));
 		}
 
+		if(query.IsActive.HasValue)
+		{
+			staffs = staffs.Where(s=>s.IsActive==query.IsActive.Value);
+		}
+
 		var totalCount = await staffs.CountAsync(ct);           
+
+		if(totalCount <= 0)
+		{
+			throw new NotFoundException("Unable to find staffs, please add new staff or change the filter");
+		}
 
 		//Fetch Data, with paging done in Database side
 		var data = await staffs
