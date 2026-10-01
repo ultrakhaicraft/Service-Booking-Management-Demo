@@ -23,3 +23,12 @@ export interface PagingQuery {
   pageIndex?: number;
   pageSize?: number;
 }
+
+type QueryValue = string | number | boolean | null | undefined;
+export type QueryParams = Record<string, QueryValue>;
+ 
+export interface RequestOptions {
+  query?: QueryParams;
+  body?: unknown;
+  signal?: AbortSignal;
+}
