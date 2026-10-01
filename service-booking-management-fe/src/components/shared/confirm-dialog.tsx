@@ -7,6 +7,7 @@ interface ConfirmDialogProps {
   title: string;
   message: ReactNode;
   confirmLabel?: string;
+  variant?: "danger" | "primary";
   isBusy?: boolean;
   error?: string | null;
   onConfirm: () => void;
@@ -17,6 +18,7 @@ export default function ConfirmDialog({
   title,
   message,
   confirmLabel = "Confirm",
+  variant = "danger",
   isBusy = false,
   error,
   onConfirm,
@@ -45,7 +47,11 @@ export default function ConfirmDialog({
           type="button"
           onClick={onConfirm}
           disabled={isBusy}
-          className="rounded-full bg-red-600 px-6 py-2 font-semibold text-white hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+          className={`rounded-full px-6 py-2 font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${
+            variant === "danger"
+              ? "bg-red-600 text-white hover:bg-red-700"
+              : "bg-accent text-gray-900 hover:brightness-95"
+          }`}
         >
           {isBusy ? "Working..." : confirmLabel}
         </button>
