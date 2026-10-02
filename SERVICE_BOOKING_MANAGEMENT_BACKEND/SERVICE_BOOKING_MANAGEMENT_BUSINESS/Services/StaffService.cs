@@ -117,7 +117,7 @@ public class StaffService : IStaffService
 	//Delete staff
 	public async Task DeleteStaffAsync(Guid id)
 	{
-		var staff =  _staffRepository.FindAsync(w=>w.Id == id)
+		var staff = await _staffRepository.FindAsync(w=>w.Id == id)
 			?? throw new NotFoundException($"Staff '{id}' was not found.");
 
 		//Check if there is staff entity in Booking and WorkSchedule to prevent accidental deletion

@@ -34,7 +34,7 @@ public class ServiceCreateDTO
 	[Required(ErrorMessage = "Service description is required.")]
 	public required string Description { get; set; }
 
-	[Range(1, 1440, ErrorMessage = "Duration must be between 1 and 1440 minutes (24 hours).")]
+	[Range(20, 1440, ErrorMessage = "Duration must be between 20 and 1440 minutes (24 hours).")]
 	public int DurationMinutes { get; set; }
 	[Range(0,int.MaxValue,ErrorMessage ="Price cannot be negative")]
 	public int Price { get; set; }

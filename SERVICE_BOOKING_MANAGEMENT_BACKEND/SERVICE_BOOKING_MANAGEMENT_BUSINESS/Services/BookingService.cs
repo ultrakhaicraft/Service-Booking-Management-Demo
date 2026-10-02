@@ -269,7 +269,7 @@ public class BookingService : IBookingService
 			throw new ConflictException("This booking is already cancelled.");
 		if (booking.Status == BookingStatus.Completed)
 			throw new ConflictException("A completed booking cannot be cancelled.");
-		if (booking.StartTime <= Now() && booking.Status == BookingStatus.Confirmed)
+		if (booking.StartTime <= Now())
 			throw new ConflictException("A booking that has already started cannot be cancelled.");
 
 		booking.Status = BookingStatus.Cancelled;
