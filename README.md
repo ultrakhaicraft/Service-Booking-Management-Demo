@@ -9,7 +9,7 @@
 |---|---|
 | [.NET SDK](https://dotnet.microsoft.com/download) | 8.x |
 | [Node.js](https://nodejs.org/) | v22.12.0 (đã kèm npm) |
-| Microsoft SQL Server | Bản Express là đủ |
+| Microsoft SQL Server | Microsoft SQL Server 2022 (RTM) - 16.0.1000.6|
 | Công cụ SQL | SSMS, Azure Data Studio hoặc `sqlcmd` (để chạy script dữ liệu mẫu) |
 | EF Core CLI | `dotnet tool install --global dotnet-ef` |
 
