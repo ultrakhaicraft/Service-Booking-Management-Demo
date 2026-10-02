@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SERVICE_BOOKING_MANAGEMENT_BUSINESS.Utility;
 using SERVICE_BOOKING_MANAGEMENT_DAO.Entities;
 using SERVICE_BOOKING_MANAGEMENT_DAO.Utility;
 using System.Data.Common;
@@ -22,12 +23,15 @@ namespace SERVICE_BOOKING_MANAGEMENT_API
 
 		public static void ConfigCors(this IServiceCollection services, IConfiguration configuration)
 		{
-			var allowedOrigins = configuration
-				.GetSection("ValidFrontEndURLs")
-				.Get<string[]>() ?? Array.Empty<string>();
+			var allowedOrigins = configuration.GetSection("ValidFrontEndURLs").Get<string[]>();
+
+			if (allowedOrigins is null || allowedOrigins.Length == 0)
+			{
+				allowedOrigins = new[] { "http://localhost:3000" }; // fallback
+			}
 
 			services.AddCors(options => options.AddPolicy("AllowFrontEndOrigins", builder =>
-					builder.WithOrigins("allowedOrigins")
+					builder.WithOrigins(allowedOrigins)
 						   .AllowAnyHeader()
 						   .AllowAnyMethod()
 						   .AllowCredentials()

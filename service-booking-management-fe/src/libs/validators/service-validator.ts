@@ -1,7 +1,7 @@
 export const SERVICE_LIMITS = {
   nameMax: 150,
   descriptionMax: 1000,
-  durationMin: 1,
+  durationMin: 20,
   durationMax: 1440,
   priceMin: 0,
   priceMax: 2_147_483_647, // C# int.MaxValue

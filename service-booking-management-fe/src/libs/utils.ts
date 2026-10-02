@@ -48,3 +48,18 @@ export function formatWeekday(isoDate: string): string {
   const [year, month, day] = isoDate.slice(0, 10).split("-").map(Number);
   return new Date(year, month - 1, day).toLocaleDateString("en-GB", { weekday: "short" });
 }
+
+/** Current local time as "YYYY-MM-DDTHH:mm:ss". */
+export function nowLocalDateTime(): string {
+  const now = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return (
+    `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}` +
+    `T${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
+  );
+}
+ 
+/** True when the given booking time is now or earlier. */
+export function isPast(iso: string, now: string = nowLocalDateTime()): boolean {
+  return iso.slice(0, 19) <= now;
+}

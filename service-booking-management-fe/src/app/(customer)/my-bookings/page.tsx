@@ -12,7 +12,7 @@ import BookingStatusBadge from "@/components/ui/booking-status-badge";
 import CancelBookingModal from "@/components/ui/cancel-booking-modal";
 import Pagination from "@/components/ui/pagination";
 import { LoadingState, ErrorState, EmptyState } from "@/components/ui/state-view";
-import { formatDateTimeRange } from "@/libs/utils";
+import { formatDateTimeRange, isPast, nowLocalDateTime } from "@/libs/utils";
 import { ApiError } from "@/types/errorType";
 
 const PAGE_SIZE = 5;
@@ -31,6 +31,7 @@ export default function MyBookingsPage() {
   const [data, setData] = useState<PagingModel<BookingDetailDTO> | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const now = nowLocalDateTime();
 
   const [date, setDate] = useState(""); // "YYYY-MM-DD" or ""
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
@@ -172,8 +173,8 @@ export default function MyBookingsPage() {
               </thead>
               <tbody className="divide-y">
                 {items.map((booking) => {
-                  const canCancel =
-                    booking.status === BookingStatus.Pending || booking.status === BookingStatus.Confirmed;
+                  const canCancel =  !(booking.status === BookingStatus.Completed || booking.status === BookingStatus.Cancelled
+                      || isPast(booking.startTime, now));
                   return (
                     <tr key={booking.id}>
                       <td className="px-4 py-3 font-medium whitespace-nowrap text-gray-900">{booking.bookingCode}</td>

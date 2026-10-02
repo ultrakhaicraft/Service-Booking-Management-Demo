@@ -114,8 +114,8 @@ public class WorkScheduleService : IWorkScheduleService
 
 		var IsOverlapped = await schedules.AnyAsync(w => w.StaffId == StaffId
 								&& w.WorkDate == date
-								&& start < w.StartTime
-								&& end > w.EndTime);
+								&& start < w.EndTime
+								&& end > w.StartTime);
 
 		if (IsOverlapped)
 			throw new ConflictException("This shift overlaps an existing shift of the same staff member.");
