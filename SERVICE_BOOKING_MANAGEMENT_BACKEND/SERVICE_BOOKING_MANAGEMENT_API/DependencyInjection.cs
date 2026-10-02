@@ -17,13 +17,17 @@ namespace SERVICE_BOOKING_MANAGEMENT_API
 			services.ConfigSwagger();
 			services.AddAuthentication(configuration.GetSection("TokenSettings").Get<TokenSetting>());
 			services.AddDatabase(configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
-			services.ConfigCors();
+			services.ConfigCors(configuration);
 		}
 
-		public static void ConfigCors(this IServiceCollection services)
+		public static void ConfigCors(this IServiceCollection services, IConfiguration configuration)
 		{
+			var allowedOrigins = configuration
+				.GetSection("ValidFrontEndURLs")
+				.Get<string[]>() ?? Array.Empty<string>();
+
 			services.AddCors(options => options.AddPolicy("AllowFrontEndOrigins", builder =>
-					builder.WithOrigins("http://localhost:3000")
+					builder.WithOrigins("allowedOrigins")
 						   .AllowAnyHeader()
 						   .AllowAnyMethod()
 						   .AllowCredentials()
@@ -39,8 +43,8 @@ namespace SERVICE_BOOKING_MANAGEMENT_API
 				c.SwaggerDoc("v1", new OpenApiInfo
 				{
 					Version = "v1",
-					Title = "School Medical API",
-					Description = "API for School Medical System"
+					Title = "Service Booking Management API",
+					Description = "API for Service Booking Management System"
 				});
 				c.CustomSchemaIds(type => type.FullName);
 				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
