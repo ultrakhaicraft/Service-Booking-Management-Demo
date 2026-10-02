@@ -52,7 +52,7 @@ public class BookingController : Controller
 	}
 
 	[HttpGet]
-	[Authorize]
+	[Authorize(Roles = nameof(AccountRole.Admin))]
 	[ProducesResponseType(typeof(PagingModel<BookingDetailDTO>), StatusCodes.Status200OK)]
 	public async Task<IActionResult> GetBookings([FromQuery] BookingQuery query)
 	{
